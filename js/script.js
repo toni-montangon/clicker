@@ -15,14 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
       clickCount += multiplier;
       localStorage.setItem("clickCount", clickCount);
       clickCounter.textContent = clickCount;
-
-      // Ajouter une animation temporaire
-      carImage.classList.add("car-driving");
-      setTimeout(() => {
-        carImage.classList.remove("car-driving");
-      }, 300); // Durée de l'animation (0.3s)
-    });
-
+    }
+    );
     // Réinitialisation des données
     resetButton.addEventListener("click", () => {
       if (confirm("Voulez-vous vraiment tout réinitialiser ?")) {

@@ -4,20 +4,31 @@
   <meta charset="UTF-8">
   <title>Clicker Voiture</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="text-center p-5">
-  <h1>Jeu de Clicker Voiture</h1>
-  <h2>Kilomètres parcourus : <span id="clickCount">0</span></h2>
-  
-  <img id="carImage" src="assets\niv1-golf.webp" alt="Voiture" class="img-fluid my-4" style="max-height: 300px; cursor: pointer;">
-  
-  <br>
-  <a href="shop.html" class="btn btn-primary">Aller à la Boutique</a>
+<body class="bg-light">
 
-  <!-- Conteneur fixe pour le bouton Réinitialiser -->
-  <div class="fixed-bottom bg-light text-center py-3">
-    <button id="resetButton" class="btn btn-danger">Réinitialiser</button>
+  <div class="container-fluid">
+    <div class="row min-vh-100">
+      
+      <!-- Colonne principale (centrée) -->
+      <div class="col-md-9 d-flex flex-column align-items-center justify-content-center text-center">
+        <h1 class="mb-3">🚗 Jeu de Clicker Voiture</h1>
+        <h4 class="mb-4">Kilomètres parcourus : <span id="clickCount" class="text-primary fw-bold">0</span></h4>
+
+        <img id="carImage" src="assets/niv1-golf.webp" alt="Voiture" class="img-fluid mb-4" style="max-height: 300px; cursor: pointer;">
+      </div>
+
+      <!-- Nav latérale droite -->
+      <div class="col-md-3 bg-white border-start d-flex flex-column justify-content-center align-items-center shadow-sm">
+        <a href="shop.html" class="btn btn-outline-primary mb-3">🏪 Boutique</a>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Bouton Réinitialiser fixe en bas -->
+  <div class="fixed-bottom bg-white border-top py-3 text-center shadow-sm">
+    <button id="resetButton" class="btn btn-danger">🔄 Réinitialiser</button>
   </div>
 
   <script src="js/script.js"></script>

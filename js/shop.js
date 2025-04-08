@@ -11,7 +11,8 @@ function updateShop(container) {
   let bonuses = [
     { clicks: 50, name: "x2 Multiclique", multiplier: 2 },
     { clicks: 200, name: "x4 Turbo Clic", multiplier: 4 },
-    { clicks: 500, name: "x8 Hyperdrive", multiplier: 8 }
+    { clicks: 500, name: "x8 Hyperdrive", multiplier: 8 },
+    { clicks: 2500, name: "x16 Mega Clic", multiplier: 16 }
   ];
 
   let currentMultiplier = parseInt(localStorage.getItem("multiplier")) || 1;
