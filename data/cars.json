@@ -1,0 +1,24 @@
+[
+    {
+      "clicksRequired": 0,
+      "name": "Voiture de base",
+      "image": "assets\niv1-golf.webp"
+    },
+    {
+      "clicksRequired": 50,
+      "name": "Voiture améliorée",
+      "image": "assets\niv2-fiesta.webp"
+    },
+    {
+      "clicksRequired": 200,
+      "name": "Voiture sportive",
+      "image": "assets\niv3-205gti.webp"
+    },
+    {
+      "clicksRequired": 500,
+      "name": "Voiture de luxe",
+      "image": "assets\niv4-e46.webp"
+    }
+  ]
+  
+  
