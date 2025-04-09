@@ -9,10 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function updateShop(container) {
   let bonuses = [
-    { clicks: 50, name: "x2 Multiclique", multiplier: 2 },
-    { clicks: 200, name: "x4 Turbo Clic", multiplier: 4 },
-    { clicks: 500, name: "x8 Hyperdrive", multiplier: 8 },
-    { clicks: 2500, name: "x16 Mega Clic", multiplier: 16 }
+    { clicks: 50, name: "x2", multiplier: 2 },
+    { clicks: 200, name: "x4", multiplier: 4 },
+    { clicks: 500, name: "x8", multiplier: 8 },
+    { clicks: 1500, name: "x16", multiplier: 16 },
+    { clicks: 5000, name: "x32", multiplier: 32 }
   ];
 
   let currentMultiplier = parseInt(localStorage.getItem("multiplier")) || 1;
@@ -33,12 +34,11 @@ function updateShop(container) {
       let button = document.createElement("button");
       button.textContent = "Activer";
       button.className = "btn btn-primary btn-sm ms-2";
-      button.disabled = alreadyBought;
 
       button.addEventListener("click", () => {
         localStorage.setItem("multiplier", bonus.multiplier);
-        button.disabled = true;
-        div.textContent = `${bonus.name} - Débloqué à ${bonus.clicks} clics ✅ (activé)`;
+        alert(`Bonus ${bonus.name} activé ! Multiplicateur x${bonus.multiplier}`);
+        location.reload(); // Recharge la page pour appliquer le bonus
       });
 
       div.appendChild(button);
