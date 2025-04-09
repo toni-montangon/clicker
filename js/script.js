@@ -24,30 +24,37 @@ const bonuses = [
   { clicks: 20000000, name: "x65536", multiplier: 65536 }
 ];
 
-// Liste des images des voitures (directement depuis le dossier assets)
+// Liste des voitures associées aux bonus
 const carImages = [
-  "assets/niv1-golf.webp",
-  "assets/niv2-fiesta.webp",
-  "assets/niv3-205gti.webp",
-  "assets/niv4-e46.webp",
-  "assets/niv5-w204.webp",
-  "assets/niv6-e60.webp",
-  "assets/niv7-golf7.webp",
-  "assets/niv8-cla.webp",
-  "assets/niv9-mustang.webp",
-  "assets/niv10-f90.webp",
-  "assets/niv11-a7.webp",
-  "assets/niv12-m4.webp",
-  "assets/niv13-ftype.webp",
-  "assets/niv14-rs6.webp",
-  "assets/niv15-amggt.webp",
-  "assets/niv16-r8.webp"
+  { image: "assets/niv1-golf.webp", requiredMultiplier: 1 },
+  { image: "assets/niv2-fiesta.webp", requiredMultiplier: 2 },
+  { image: "assets/niv3-205gti.webp", requiredMultiplier: 4 },
+  { image: "assets/niv4-e46.webp", requiredMultiplier: 8 },
+  { image: "assets/niv5-w204.webp", requiredMultiplier: 16 },
+  { image: "assets/niv6-e60.webp", requiredMultiplier: 32 },
+  { image: "assets/niv7-golf7.webp", requiredMultiplier: 64 },
+  { image: "assets/niv8-cla.webp", requiredMultiplier: 128 },
+  { image: "assets/niv9-mustang.webp", requiredMultiplier: 256 },
+  { image: "assets/niv10-f90.webp", requiredMultiplier: 512 },
+  { image: "assets/niv11-a7.webp", requiredMultiplier: 1024 },
+  { image: "assets/niv12-m4.webp", requiredMultiplier: 2048 },
+  { image: "assets/niv13-ftype.webp", requiredMultiplier: 4096 },
+  { image: "assets/niv14-rs6.webp", requiredMultiplier: 8192 },
+  { image: "assets/niv15-amggt.webp", requiredMultiplier: 16384 },
+  { image: "assets/niv16-r8.webp", requiredMultiplier: 32768 }
 ];
 
 // Fonction pour mettre à jour l'image de la voiture après l'achat d'un multiplicateur
 function updateCarImage() {
-  const carIndex = Math.min(multiplier - 1, carImages.length - 1); // L'index dépend du multiplicateur
-  carImage.src = carImages[carIndex];
+  // Trouve la voiture correspondant exactement au multiplicateur actuel
+  const car = carImages.find(car => car.requiredMultiplier === multiplier);
+
+  // Si une voiture correspond, met à jour l'image
+  if (car) {
+    carImage.src = car.image;
+  } else {
+    console.error("Aucune voiture trouvée pour le multiplicateur :", multiplier);
+  }
 }
 
 // Fonction pour calculer le prochain objectif de clics
