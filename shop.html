@@ -4,11 +4,41 @@
   <meta charset="UTF-8">
   <title>Boutique</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="text-center p-5">
-  <h1>🛒 Boutique des Bonus</h1>
-  <div id="shopItems" class="my-4"></div>
-  <a href="index.html" class="btn btn-secondary">Retour au jeu</a>
+<body class="text-center p-5" style="background-image: url('assets/garage-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+  <div class="container-fluid d-flex flex-column justify-content-between h-100">
+    <h1 class="text-white mb-4">💲 Boutique des Bonus 💲</h1>
+
+    <!-- Section Multiplicateurs -->
+    <div class="bonus-section text-white">
+      <h3>📈 Multiplicateurs</h3>
+      <div id="multiplicatorList" class="d-flex flex-wrap justify-content-center">
+        <!-- Les multiplicateurs seront ajoutés dynamiquement via shop.js -->
+      </div>
+    </div>
+
+    <!-- Section Régulateur de vitesse -->
+    <div class="bonus-section text-white">
+      <h3>🚗 Régulateur de vitesse</h3>
+      <div class="d-flex align-items-center justify-content-center">
+        <img src="assets/Regulateur-logo.png" alt="Régulateur de vitesse" style="width: 70px; height: 70px; margin-right: 10px;">
+        <span>Activez le régulateur pour gagner des kilomètres automatiquement (à venir)</span>
+      </div>
+    </div>
+
+    <!-- Section Nitro -->
+    <div class="bonus-section text-white">
+      <h3>🔥 Nitro</h3>
+      <div class="d-flex align-items-center justify-content-center">
+        <img src="assets/Nitro-logo.png" alt="Nitro" style="width: 70px; height: 70px; margin-right: 10px;">
+        <span>Activez la nitro pour multiplier vos points temporairement (à venir)</span>
+      </div>
+    </div>
+
+    <a href="index.html" class="btn btn-secondary mt-4">Retour au jeu</a>
+  </div>
 
   <script src="js/shop.js"></script>
 </body>

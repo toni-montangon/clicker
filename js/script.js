@@ -125,17 +125,46 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetButton = document.getElementById("resetButton");
   const buyButton = document.getElementById("buyMultiplier"); // Bouton pour acheter un multiplicateur
 
+  // Ajoutez une variable pour suivre le nombre de clics rapides
+  let clickSpeedTimeout;
+  let clickCountInInterval = 0;
+
   // Initialisation
   if (clickCounter && carImage) {
     clickCounter.textContent = clickCount;
     updateCarImage();
     updateProgressBar();
 
-    // Ajoute un événement de clics sur l'image
+    // Ajoute un événement de clic sur l'image de la voiture
     carImage.addEventListener('click', () => {
       clickCount += multiplier; // Ajoute les clics en fonction du multiplicateur
       localStorage.setItem("clickCount", clickCount); // Stocke le nombre de clics dans le localStorage
       clickCountElement.textContent = clickCount;
+
+      // Ajoute l'animation à la voiture
+      carImage.classList.add('car-moving');
+
+      // Retire l'animation après 0.5s (durée de l'animation)
+      setTimeout(() => {
+        carImage.classList.remove('car-moving');
+      }, 500);
+
+      // Gestion de l'effet de vitesse
+      clickCountInInterval++;
+      if (clickSpeedTimeout) clearTimeout(clickSpeedTimeout);
+
+      if (clickCountInInterval >= 10) { // Si l'utilisateur clique rapidement 10 fois ou plus
+        const speedEffect = document.getElementById('speedEffect');
+        speedEffect.style.display = 'block'; // Affiche le GIF
+        setTimeout(() => {
+          speedEffect.style.display = 'none'; // Cache le GIF après 1 seconde
+        }, 1000);
+      }
+
+      // Réinitialise le compteur après 1 seconde d'inactivité
+      clickSpeedTimeout = setTimeout(() => {
+        clickCountInInterval = 0;
+      }, 1000);
 
       // Met à jour la barre de progression
       updateProgressBar();

@@ -9,12 +9,140 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-image: url('https://cdnb.artstation.com/p/assets/images/images/057/271/375/original/abiel-montes-bg2.gif?1671177941');
+    background-image: url("../assets/route-bg.gif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-y: auto; /* Active le défilement vertical */
 }
 
 #carImage {
-  width: 500px; /* Maintient les proportions */
+  width: 450px; /* Maintient les proportions */
+}
+
+/* Positionne le logo en haut à droite avec un espace */
+.position-absolute {
+  position: absolute;
+}
+
+.top-0 {
+  top: 15px; /* Ajoute un espace de 10px par rapport au haut */
+}
+
+.end-0 {
+  right: 15px; /* Ajoute un espace de 10px par rapport à la droite */
+}
+
+.m-3 {
+  margin: 1rem;
+}
+
+/* Animation pour simuler le mouvement de la voiture */
+@keyframes carMove {
+  0% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(20px); /* Déplace la voiture vers la droite */
+  }
+  100% {
+    transform: translateX(0); /* Retourne à la position initiale */
+  }
+}
+
+/* Classe pour appliquer l'animation */
+.car-moving {
+  animation: carMove 0.5s ease-in-out; /* Durée de 0.5s */
+}
+
+/* Style pour les sections de la boutique */
+h3 {
+  margin-bottom: 20px;
+}
+
+/* Style pour les sections de bonus */
+.bonus-section {
+  flex: 1; /* Chaque section occupe une part égale de l'espace */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bonus-section h3 {
+  margin-bottom: 20px;
+}
+
+/* Style pour le menu déroulant */
+select.form-select {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #007bff;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Style pour le bouton d'activation */
+button.btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+button.btn-primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+img {
+  border-radius: 5px;
+}
+
+/* Style pour les cartes de multiplicateurs */
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour les images des cartes */
+.card img {
+  width: 100%; /* Adapte la largeur à la carte */
+  height: 120px; /* Augmente la hauteur pour agrandir les images */
+  object-fit: contain; /* Préserve les proportions de l'image */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Autorise le défilement vertical dans le shop */
+.container-fluid {
+  height: auto; /* Permet à la hauteur du contenu de s'adapter */
+  min-height: 100vh; /* Assure que le contenu occupe au moins toute la hauteur de l'écran */
+}
+
+#speedEffect {
+  position: absolute;
+  bottom: 100px; /* Ajuste la position pour qu'il soit derrière la voiture */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1; /* Place le GIF derrière la voiture */
+  width: 300px; /* Réduit la largeur du GIF */
+  height: auto;
+  display: none; /* Caché par défaut */
+  pointer-events: none; /* Empêche toute interaction avec le GIF */
 }
