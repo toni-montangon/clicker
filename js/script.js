@@ -178,14 +178,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const resetButton = document.getElementById("resetButton");
+// Sélectionne l'image de réinitialisation
+const resetButton = document.getElementById('resetButton');
 
-  // Ajoute un événement pour réinitialiser le jeu
-  if (resetButton) {
-    resetButton.addEventListener("click", resetGame);
-  } else {
-    console.error("Le bouton Réinitialiser (resetButton) est introuvable dans le DOM.");
+// Ajoute un événement de clic pour réinitialiser le jeu
+resetButton.addEventListener('click', () => {
+  if (confirm("Voulez-vous vraiment tout réinitialiser ?")) {
+    localStorage.clear(); // Réinitialise les données stockées
+    location.reload(); // Recharge la page
   }
 });
 
